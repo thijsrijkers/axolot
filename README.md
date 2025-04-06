@@ -33,14 +33,9 @@
 > The encryption rules can only be exported **once** during the **first launch** of the application. After that, they are locked and cannot be retrieved again.
 > 
 
-  - If no custom key is provided, a key is automatically generated.
-  ```bash
-  To generate the key based on host details:
-  go run main.go
-  ```
+## Running Unit Tests
 
-  - You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
-  ```bash
-  To set a custom key:
-  go run main.go "yourKey1234567890abcdef12345678"
-  ```
+To run the unit tests for the project, use the following Go command:
+
+```bash
+go test -v ./src/unit/...

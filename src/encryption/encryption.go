@@ -28,7 +28,7 @@ func GenerateKeyFromHostDetails() ([]byte, error) {
 	}
 
 	// Combine host details into a single string
-	data := fmt.Sprintf("%s%s%s", info.Hostname, info.OS, info.Architecture)
+	data := fmt.Sprintf("%s%s%s", info.Hostname, info.OS, info.Architecture, info.Timestamp)
 
 	// Hash the combined string to generate a fixed-size key
 	hash := sha256.New()

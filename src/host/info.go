@@ -5,6 +5,7 @@ import (
 	"net"
 	"os"
 	"runtime"
+	"time"
 )
 
 type HostDetails struct {
@@ -12,6 +13,7 @@ type HostDetails struct {
 	OS           string
 	Architecture string
 	Interfaces   []NetworkInterface
+	Timestamp    string
 }
 
 type NetworkInterface struct {
@@ -42,10 +44,13 @@ func GetHostDetails() (*HostDetails, error) {
 		})
 	}
 
+	timestamp := time.Now().Format(time.RFC3339) 
+
 	return &HostDetails{
 		Hostname:     hostname,
 		OS:           runtime.GOOS,
 		Architecture: runtime.GOARCH,
 		Interfaces:   nets,
+		Timestamp:    timestamp,
 	}, nil
 }
