@@ -28,8 +28,11 @@ func (cs *CredentialStore) AddCredential(username, password string) error {
 		return fmt.Errorf("failed to encrypt password: %v", err)
 	}
 
+	// Convert encrypted password from string to []byte (base64 encoded)
+	encryptedPasswordBytes := []byte(encryptedPassword)
+
 	// Store the encrypted username as the key and encrypted password as the value
-	cs.store[encryptedUsername] = encryptedPassword
+	cs.store[encryptedUsername] = encryptedPasswordBytes
 	return nil
 }
 
@@ -46,8 +49,11 @@ func (cs *CredentialStore) VerifyCredential(username, password string) bool {
 		return false
 	}
 
+	// Decrypt the password (encryptedPassword is []byte, so we need to decode it to string for decryption)
+	encryptedPasswordString := string(encryptedPassword)
+
 	// Decrypt the password to compare with the input password
-	decryptedPassword, err := encryption.DecryptData(encryptedPassword)
+	decryptedPassword, err := encryption.DecryptData(encryptedPasswordString)
 	if err != nil {
 		return false
 	}

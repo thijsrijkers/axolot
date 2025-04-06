@@ -11,6 +11,10 @@ import (
 
 var storedKey []byte
 
+func SetKey(key []byte) {
+	storedKey = key
+}
+
 func GenerateKeyFromHostDetails() ([]byte, error) {
 	// If the key is already generated, return it from memory
 	if storedKey != nil {
