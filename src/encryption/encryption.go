@@ -9,7 +9,15 @@ import (
 	"axolot/src/host"
 )
 
+var storedKey []byte
+
 func GenerateKeyFromHostDetails() ([]byte, error) {
+	// If the key is already generated, return it from memory
+	if storedKey != nil {
+		return storedKey, nil
+	}
+
+	// Get host details
 	info, err := host.GetHostDetails()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get host details: %w", err)
@@ -21,11 +29,19 @@ func GenerateKeyFromHostDetails() ([]byte, error) {
 	// Hash the combined string to generate a fixed-size key
 	hash := sha256.New()
 	hash.Write([]byte(data))
-	return hash.Sum(nil), nil
+	storedKey = hash.Sum(nil)
+
+	return storedKey, nil
 }
 
-func EncryptData(plaintext string, key []byte) (string, error) {
-	block, err := aes.NewCipher(key)
+func EncryptData(plaintext string) (string, error) {
+	// Check if the key has been generated and stored in memory
+	if storedKey == nil {
+		return "", fmt.Errorf("key is not generated yet")
+	}
+
+	// Create AES cipher block
+	block, err := aes.NewCipher(storedKey)
 	if err != nil {
 		return "", fmt.Errorf("failed to create AES cipher: %w", err)
 	}
@@ -46,8 +62,14 @@ func EncryptData(plaintext string, key []byte) (string, error) {
 	return base64.StdEncoding.EncodeToString(ciphertext), nil
 }
 
-func DecryptData(ciphertextBase64 string, key []byte) (string, error) {
-	block, err := aes.NewCipher(key)
+func DecryptData(ciphertextBase64 string) (string, error) {
+	// Check if the key has been generated and stored in memory
+	if storedKey == nil {
+		return "", fmt.Errorf("key is not generated yet")
+	}
+
+	// Create AES cipher block
+	block, err := aes.NewCipher(storedKey)
 	if err != nil {
 		return "", fmt.Errorf("failed to create AES cipher: %w", err)
 	}
