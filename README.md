@@ -24,6 +24,7 @@
 > The encryption rules can only be exported **once** during the **first launch** of the application. After that, they are locked and cannot be retrieved again.
 > 
 
+
 ## 🛡️ Security Principles
 
 - In-memory only storage to prevent disk-level access.
