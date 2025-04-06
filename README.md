@@ -33,14 +33,16 @@
 > The encryption rules can only be exported **once** during the **first launch** of the application. After that, they are locked and cannot be retrieved again.
 > 
 
-1. **Automatic Key Generation**: If no custom key is provided, a key is automatically generated.
+1. **Automatic Key Generation**: 
+   If no custom key is provided, a key is automatically generated.
 
    To generate the key based on host details:
    ```bash
    go run main.go
    ```
 
-2. **Custom Key via Command Line**:  You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
+2. **Generated Key via Command Line**:  
+    You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
 
     To set a custom key:
     ```bash
