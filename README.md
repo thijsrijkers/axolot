@@ -38,12 +38,11 @@
    To generate the key based on host details:
    ```bash
    go run main.go
-  ```
+   ```
 
 2. **Custom Key via Command Line**:  You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
 
     To set a custom key:
     ```bash
     go run main.go "yourKey1234567890abcdef12345678"
-
     ```
