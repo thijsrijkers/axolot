@@ -34,7 +34,7 @@
 > 
 
 1. **Automatic Key Generation**: 
-   If no custom key is provided, a key is automatically generated.
+  - If no custom key is provided, a key is automatically generated.
 
    To generate the key based on host details:
    ```bash
@@ -42,7 +42,7 @@
    ```
 
 2. **Generated Key via Command Line**:  
-    You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
+  - You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
 
     To set a custom key:
     ```bash
