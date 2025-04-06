@@ -16,8 +16,13 @@
 - 📦 **Encrypted Export**  
   Export the user store in a secure, encrypted format for backup or migration.
 
-- 🔁 **Portable Encryption Rules**  
-  Export the encryption rules separately to re-import and decrypt data on another host machine securely.
+## 🔁 Portable Encryption Rules
+
+- Export the encryption rules separately to re-import and decrypt data on another host machine securely.
+
+> ⚠️ **One-Time Export Rule**  
+> The encryption rules can only be exported **once** during the **first launch** of the application. After that, they are locked and cannot be retrieved again.
+> 
 
 ## 🛡️ Security Principles
 
