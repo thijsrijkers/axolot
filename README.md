@@ -34,14 +34,13 @@
 > 
 
   - If no custom key is provided, a key is automatically generated.
-   ```bash
-   To generate the key based on host details:
-   go run main.go
-   ```
+  ```bash
+  To generate the key based on host details:
+  go run main.go
+  ```
 
   - You can also provide a already generated key when booting the program. The key must be passed as a command-line argument.
-
-    ```bash
-    To set a custom key:
-    go run main.go "yourKey1234567890abcdef12345678"
-    ```
+  ```bash
+  To set a custom key:
+  go run main.go "yourKey1234567890abcdef12345678"
+  ```
