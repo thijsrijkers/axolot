@@ -2,22 +2,22 @@
 
 **Axolot** is a lightweight, secure, in-memory user account manager written in Go. It allows for the creation of user accounts with usernames and passwords, with all data encrypted and stored in memory. Axolot ensures user data is tightly bound to the host machine, making it inaccessible to anything other than the application itself.
 
-## ✨ Features
+## Features
 
-- 👤 **User Account Creation**  
+-  **User Account Creation**  
   Easily create user accounts using a `username` and `password`.
 
-- 🧠 **Encrypted In-Memory Storage**  
+-  **Encrypted In-Memory Storage**  
   All user data is encrypted and stored in memory — never written to disk unless explicitly exported.
 
-- 🔐 **Machine-Tied Encryption**  
+-  **Machine-Tied Encryption**  
   Encryption is uniquely derived from host-specific identifiers, making data unreadable outside the original host.
 
-- 📦 **Encrypted Export**  
+-  **Encrypted Export**  
   Export the user store in a secure, encrypted format for backup or migration.
 
 
-## 🛡️ Security Principles
+## Security Principles
 
 - In-memory only storage to prevent disk-level access.
 - Encryption keys are never exposed externally.
@@ -25,7 +25,7 @@
 - All exported data must be decrypted using matching host-derived rules.
 
 
-## 🔁 Portable Encryption Rules
+## Portable Encryption Rules
 
 - Export the encryption rules separately to re-import and decrypt data on another host machine securely.
 
